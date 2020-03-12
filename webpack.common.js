@@ -12,6 +12,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'index.ejs',
     }),
+    new CopyPlugin([
+      { from: 'static' },
+    ]),
   ],
   output: {
     filename: '[name].bundle.js',
@@ -29,9 +32,4 @@ module.exports = {
         },
       ],
   },
-  plugins: [
-    new CopyPlugin([
-      { from: 'static' },
-    ]),
-  ],
 };

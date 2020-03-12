@@ -92,24 +92,22 @@ loader.load(filePaths.alex, function (gltf) {
 
   modelRefs.alex.traverse(function(child) {
       if (child instanceof THREE.Mesh) {
-        child.material = material;
 
-        // assignMultipleProps({
-        //   color: new THREE.Color('white'), 
-        //   emissive: new THREE.Color(0x606060), 
-        //   reflectivity: 0.3, 
-        //   refractionRatio: 0.5, 
-        //   envMap: reflectionCube,
-        //   envMapIntensity: null,
-        // }, child.material);
+          var material = new THREE.MeshStandardMaterial({
+            emissive: new THREE.Color( 0x666666 ),
+            metalness: 0.5,
+            roughness: 0.1,
+            envMapIntensity: 1.0,
+            envMap: reflectionCube,
+            transparent: true,
+            opacity: 1
+          });
+        
+          scene.add(modelRefs.alex)
 
-        console.log(child.material);
-
-          // child.material.color = new THREE.Color('white');
-          // child.material.emissive = new THREE.Color(0x606060);
-          // child.material.reflectivity = 0.3;
-          // child.material.refractionRatio = 0.5;
-          // child.material.envMap = reflectionCube;
+          child.material = material;
+          child.material.flatShading = true;
+          child.material.needsUpdate = true;
       }
     });
 

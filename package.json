@@ -26,7 +26,7 @@
     "webpack-obj-loader": "^1.0.4"
   },
   "dependencies": {
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "three": "^0.114.0"
   }
 }
